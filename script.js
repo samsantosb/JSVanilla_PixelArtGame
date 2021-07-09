@@ -1,21 +1,15 @@
-const query = document.querySelector.bind(document);
-const queryAll = document.querySelectorAll.bind(document);
+const q = document.querySelector.bind(document);
+const qll = document.querySelectorAll.bind(document);
 const select = () => {
-  query("#color-palette").addEventListener("click", (e) => {
-    query(".selected").classList.remove("selected");
-    e.target.classList.add("selected");
+  q('#color-palette').addEventListener('click', (e) => {
+    q('.selected').classList.remove('selected');
+    e.target.classList.add('selected');
   });
 };
-const fill = () =>
-  query("#pixel-board").addEventListener(
-    "click",
-    (e) =>
-      (e.target.style.backgroundColor =
-        query(".selected").style.backgroundColor)
-  );
-const clear = () =>
-  query("#clear-board").addEventListener("click", () => {
-    const p = queryAll(".pixel");
-    for (let pxl of p) pxl.style.backgroundColor = "white";
-  });
+const fill = () => q('#pixel-board').addEventListener('click', (e) =>
+  (e.target.style.backgroundColor = q('.selected').style.backgroundColor));
+const clear = () => q('#clear-board').addEventListener('click', () => {
+  const p = qll('.pixel');
+  for (let pxl of p) pxl.style.backgroundColor = 'white';
+});
 select(), fill(), clear();
